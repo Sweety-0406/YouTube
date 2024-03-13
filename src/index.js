@@ -1,12 +1,33 @@
 // require('dotenv').config({path:'./env'})
 import dotenv from "dotenv"
 import connetDB from "./db/index.js"
+import express from 'express';
+const app = express();
 
 dotenv.config({
     path:'./env'
 })
 
 connetDB()
+.then(()=>{
+    app.on("Error",(err)=>{
+       console.log(err);
+    })
+    app.listen(process.env.PORT || 8000,()=>{
+        console.log(`App is running on port ${process.env.PORT}`)
+    })
+})
+.catch((err)=>{
+    console.log(err);
+})
+
+
+
+
+
+
+
+
 
 
 /*
