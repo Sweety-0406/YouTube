@@ -275,7 +275,7 @@ const userAvatarUpdate = asyncHandler(async(req,res)=>{
   const user = await User.findByIdAndUpdate(
     req.user?._id,
     {
-      avatar : avatar.url
+      avatar : avatar?.url
     },
     {new:true}
   ).select("-password")
@@ -301,7 +301,7 @@ const userCoverImageUpdate = asyncHandler(async(req,res)=>{
   const user = await User.findByIdAndUpdate(
     req.user?._id,
     {
-      coverImage : coverImage.url
+      coverImage : coverImage?.url
     },
     {new:true}
   ).select("-password")
