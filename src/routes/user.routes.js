@@ -19,6 +19,8 @@ router.route("/register").post(
     ]),    
     registerUser
 );
+
+//secure
 router.route("/login").post(loginUser);
 router.route("/logout").post(verifyJWT,logOut)
 router.route("/refresh-access-token").post(refreshAccessToken)
@@ -29,3 +31,4 @@ router.route("/user-avatar-updation").post(verifyJWT,userAvatarUpdate)
 router.route("/avatar-coverImage-updation").post(verifyJWT,userCoverImageUpdate)
 
 export default router;
+
